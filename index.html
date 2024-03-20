@@ -9,6 +9,18 @@
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var profilePhoto = document.getElementById('profilePhoto');
+    profilePhoto.addEventListener('mouseover', function() {
+      this.src = 'images/QiyuDai-photo-vp.jpg';
+    });
+    profilePhoto.addEventListener('mouseout', function() {
+      this.src = 'images/QiyuDai-photo.jpg';
+    });
+  });
+</script>
+
 <body>
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr style="padding:0px">
@@ -30,7 +42,7 @@
               </p>
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/QiyuDai-photo.jpg"><img style="width:80%;max-width:80%" alt="profile photo" src="images/QiyuDai-photo.jpg" class="hoverZoomLink"></a>
+              <a href="images/QiyuDai-photo.jpg"><img style="width:80%;max-width:80%" alt="profile photo" src="images/QiyuDai-photo.jpg" class="hoverZoomLink" id="profilePhoto"></a>
             </td>
           </tr>
         </tbody></table>
