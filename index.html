@@ -22,16 +22,38 @@
       
     var profilePhoto = document.getElementById('profilePhoto');
       var profilePhotoHover = document.getElementById('profilePhotoHover');
+      var photoContainer = profilePhoto.parentElement;
       
-      profilePhoto.parentElement.addEventListener('mouseover', function () {
+      // Function to show hover image
+      function showHoverImage() {
         if (profilePhotoHover) {
           profilePhotoHover.style.opacity = "1";
         }
-      });
-      profilePhoto.parentElement.addEventListener('mouseout', function () {
+      }
+      
+      // Function to hide hover image
+      function hideHoverImage() {
         if (profilePhotoHover) {
           profilePhotoHover.style.opacity = "0";
         }
+      }
+      
+      // Mouse events for desktop
+      photoContainer.addEventListener('mouseover', showHoverImage);
+      photoContainer.addEventListener('mouseout', hideHoverImage);
+      
+      // Touch events for mobile devices
+      photoContainer.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        showHoverImage();
+      });
+      photoContainer.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        hideHoverImage();
+      });
+      photoContainer.addEventListener('touchcancel', function(e) {
+        e.preventDefault();
+        hideHoverImage();
       });
       
       // Initialize hover image opacity
@@ -49,7 +71,7 @@
               <tr style="padding:0px">
                 <td style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
-                  <h1 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: normal; text-align: center;">
+                  <h1 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: normal; text-align: center; white-space: nowrap;">
                     Qiyu Dai 
                     <span style="font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft Yahei', sans-serif; font-size: 28px; font-weight: normal; margin-left: 8px;">
                     戴启宇
@@ -90,7 +112,7 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                   <p>
-                    My research aims to develop Extended Reality (XR) systems that perceive the physical world and create immersive experiences. 
+                    My research goal is to develop Extended Reality (XR) systems that perceive the physical world and create immersive experiences. 
                     Currently, I focus on building physically plausible world models, enabling interactive digital twins. 
                     I am also interested in 3D/4D reconstruction, neural rendering, and generative models.
                   </p>
